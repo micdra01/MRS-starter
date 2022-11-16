@@ -34,13 +34,6 @@
          <children>
             <TextField fx:id="txtMovieSearch" onKeyPressed="#search" promptText="search movies" />
             <ListView fx:id="lstMovies" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
-            <HBox prefHeight="21.0" prefWidth="456.0">
-               <children>
-                  <TextField fx:id="txtTitle" prefHeight="25.0" prefWidth="245.0" promptText="Title" />
-                  <TextField fx:id="txtTYear" prefHeight="25.0" prefWidth="133.0" promptText="Year" />
-                  <Button fx:id="btnAddNew" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleAddNew" prefHeight="25.0" prefWidth="75.0" snapToPixel="false" text="Add new" />
-               </children>
-            </HBox>
          </children>
       </VBox>
    </center>
@@ -51,7 +44,7 @@
             <Pane prefHeight="128.0" prefWidth="60.0" />
             <Button maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefWidth="60.0" snapToPixel="false" text="Delete" />
             <Pane prefHeight="128.0" prefWidth="60.0" />
-            <Button maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefWidth="60.0" snapToPixel="false" text="Update" />
+            <Button fx:id="btnUpdate" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#openUpdateMovie" prefWidth="60.0" snapToPixel="false" text="Update" />
             <Pane prefHeight="128.0" prefWidth="60.0" />
             <Button maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefWidth="60.0" snapToPixel="false" text="Rate" />
          </children>

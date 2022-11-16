@@ -5,14 +5,13 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 
-
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="easv.mrs.GUI.Controller.AddMovieController">
    <center>
       <HBox prefHeight="36.0" prefWidth="210.0" BorderPane.alignment="CENTER">
          <children>
-            <TextField minHeight="-Infinity" minWidth="-Infinity" prefWidth="250.0" promptText="Title" />
-            <TextField minHeight="-Infinity" minWidth="-Infinity" prefWidth="100.0" promptText="Year" />
-            <Button mnemonicParsing="false" text="Create" />
+            <TextField fx:id="txtTitle" minHeight="-Infinity" minWidth="-Infinity" prefWidth="250.0" promptText="Title" />
+            <TextField fx:id="txtYear" minHeight="-Infinity" minWidth="-Infinity" prefWidth="90.0" promptText="Year" />
+            <Button fx:id="btnAddNew" mnemonicParsing="false" onAction="#handleAddNew" prefWidth="60.0" text="Create" />
          </children>
       </HBox>
    </center>

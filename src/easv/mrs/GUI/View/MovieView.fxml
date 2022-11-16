@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
 <GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="easv.mrs.GUI.Controller.MovieViewController">
@@ -11,11 +13,19 @@
       <ColumnConstraints />
    </columnConstraints>
    <rowConstraints>
+      <RowConstraints minHeight="10.0" prefHeight="30.0" />
       <RowConstraints />
       <RowConstraints />
    </rowConstraints>
    <children>
-      <ListView fx:id="lstMovies" prefHeight="200.0" prefWidth="200.0" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS" />
-      <TextField fx:id="txtMovieSearch" GridPane.hgrow="ALWAYS" />
+      <ListView fx:id="lstMovies" prefHeight="200.0" prefWidth="209.0" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS" />
+      <TextField fx:id="txtMovieSearch" GridPane.rowIndex="1" />
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <TextField prefHeight="25.0" prefWidth="56.0" promptText="Year" />
+            <TextField prefHeight="25.0" prefWidth="115.0" promptText="Movie Title" />
+            <Button mnemonicParsing="false" text="Add" />
+         </children>
+      </HBox>
    </children>
 </GridPane>

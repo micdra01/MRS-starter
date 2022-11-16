@@ -12,9 +12,10 @@ public class MovieDAO_Mock implements IMovieDataAccess {
     public MovieDAO_Mock()
     {
         allMovies = new ArrayList<>();
-        allMovies.add(new Movie(1, 2020,"Trump - the movie"));
+        allMovies.add(new Movie(0, 2020,"Trump - the movie"));
         allMovies.add(new Movie(1, 2024, "Trump - I did it again"));
-        allMovies.add(new Movie(1, 2028,"Trump - The new dictator on the block"));
+        allMovies.add(new Movie(2, 2028,"Trump - The new dictator on the block"));
+        allMovies.add(new Movie(3, 2020,"Biden - Where am I?"));
 
     }
 

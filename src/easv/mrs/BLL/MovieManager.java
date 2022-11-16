@@ -2,8 +2,7 @@ package easv.mrs.BLL;
 
 import easv.mrs.BE.Movie;
 import easv.mrs.BLL.util.MovieSearcher;
-import easv.mrs.DAL.IMovieDataAccess;
-import easv.mrs.DAL.MovieDAO_Mock;
+import easv.mrs.DAL.*;
 
 import java.util.List;
 
@@ -14,7 +13,7 @@ public class MovieManager {
     private IMovieDataAccess movieDAO;
 
     public MovieManager() {
-        movieDAO = new MovieDAO_Mock();
+        movieDAO = new MovieDAO_File();
     }
 
     public List<Movie> getAllMovies() throws Exception {

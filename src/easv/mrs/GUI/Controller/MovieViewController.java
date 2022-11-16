@@ -2,10 +2,12 @@ package easv.mrs.GUI.Controller;
 
 import easv.mrs.BE.Movie;
 import easv.mrs.GUI.Model.MovieModel;
+import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -54,5 +56,9 @@ public class MovieViewController implements Initializable {
     }
 
 
+    public void search(KeyEvent keyEvent) {
+    }
 
+    public void openCreateMovie(ActionEvent actionEvent) {
+    }
 }

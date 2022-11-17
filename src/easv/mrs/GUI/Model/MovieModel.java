@@ -2,6 +2,7 @@ package easv.mrs.GUI.Model;
 
 import easv.mrs.BE.Movie;
 import easv.mrs.BLL.MovieManager;
+import easv.mrs.GUI.Controller.MovieViewController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -13,13 +14,17 @@ public class MovieModel {
 
     private MovieManager movieManager;
 
+    public static Movie selectedMovie;
+
+    public void setSelectedMovie(Movie selectedMovie) {
+        MovieModel.selectedMovie = selectedMovie;
+    }
+
     public MovieModel() throws Exception {
         movieManager = new MovieManager();
         moviesToBeViewed = FXCollections.observableArrayList();
         moviesToBeViewed.addAll(movieManager.getAllMovies());
     }
-
-
 
     public ObservableList<Movie> getObservableMovies() {
         return moviesToBeViewed;

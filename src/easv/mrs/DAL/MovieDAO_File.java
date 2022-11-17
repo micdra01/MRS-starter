@@ -33,12 +33,32 @@ public class MovieDAO_File implements IMovieDataAccess {
             // Add each Movie object to the array of movies
             allMovies.add(mov);
         }
+
+        /**
+         * Method to check where there are holes in the IDs.
+
+        int count = 1;
+        for (Movie movie: allMovies) {
+            if (movie.getId() != allMovies.indexOf(movie)+count) {
+                System.out.println(allMovies.indexOf(movie));
+                count++;
+            }
+        }
+         * Result:
+         * 4387
+         * 4792
+         * 7238
+         * 10778
+         * 15913
+         * 16672
+         * 17660
+         */
         return allMovies;
     }
 
     @Override
-    public Movie createMovie(String title, int year) {
-        System.out.println(title + ", fra år " + year);
+    public Movie createMovie(String title, int year) throws IOException {
+        System.out.println(getAllMovies().size() + ": " + title + " (" + year + ")");
         return null;
     }
 

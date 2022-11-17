@@ -9,7 +9,7 @@
    <center>
       <HBox prefHeight="36.0" prefWidth="210.0" BorderPane.alignment="CENTER">
          <children>
-            <TextField fx:id="txtTitle" minHeight="-Infinity" minWidth="-Infinity" prefWidth="250.0" promptText="New title" />
+            <TextField fx:id="txtTitle" minHeight="-Infinity" minWidth="-Infinity" prefWidth="250.0" promptText="New title" HBox.hgrow="ALWAYS" />
             <TextField fx:id="txtYear" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="90.0" promptText="New year" />
             <Button fx:id="btnUpdate" mnemonicParsing="false" onAction="#handleUpdate" prefHeight="25.0" prefWidth="60.0" text="Update" />
          </children>

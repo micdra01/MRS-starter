@@ -75,10 +75,13 @@ public class MovieViewController implements Initializable {
     }
 
     public void openUpdateMovie(ActionEvent actionEvent) throws IOException {
+        Movie movie = lstMovies.getFocusModel().getFocusedItem();
+        movieModel.setSelectedMovie(movie); //Save info about selected movie in the MovieModel to use in the next window
+
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/easv/mrs/GUI/View/UpdateMovieView.fxml"));
         Parent root = loader.load();
         Stage stage = new Stage();
-        stage.setTitle("Update movie");
+        stage.setTitle("Update '" + movie.getId() + ": " + movie.getTitle() + " (" + movie.getYear() + ")'");
         stage.setScene(new Scene(root));
         stage.show();
     }

@@ -2,7 +2,8 @@ package easv.mrs.BLL;
 
 import easv.mrs.BE.Movie;
 import easv.mrs.BLL.util.MovieSearcher;
-import easv.mrs.DAL.*;
+import easv.mrs.DAL.IMovieDataAccess;
+import easv.mrs.DAL.db.MovieDAO_DB;
 
 import java.util.List;
 
@@ -13,7 +14,7 @@ public class MovieManager {
     private IMovieDataAccess movieDAO;
 
     public MovieManager() {
-        movieDAO = new MovieDAO_File();
+        movieDAO = new MovieDAO_DB(); //Change this to Movie_DAO_File(); if we disconnect database
     }
 
     public List<Movie> getAllMovies() throws Exception {
@@ -26,8 +27,15 @@ public class MovieManager {
         return searchResult;
     }
 
-    public void createNewMovie(int year, String title) throws Exception {
-        movieDAO.createMovie(title, year);
+    public Movie createNewMovie(int year, String title) throws Exception {
+        return movieDAO.createMovie(title, year);
     }
 
+    public void updateMovie(Movie movie) throws Exception {
+        movieDAO.updateMovie(movie);
+    }
+
+    public void deleteMovie(Movie movie) throws Exception {
+        movieDAO.deleteMovie(movie);
+    }
 }

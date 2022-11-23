@@ -2,7 +2,6 @@ package easv.mrs.GUI.Model;
 
 import easv.mrs.BE.Movie;
 import easv.mrs.BLL.MovieManager;
-import easv.mrs.GUI.Controller.MovieViewController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -15,10 +14,6 @@ public class MovieModel {
     private MovieManager movieManager;
 
     public static Movie selectedMovie;
-
-    public void setSelectedMovie(Movie selectedMovie) {
-        MovieModel.selectedMovie = selectedMovie;
-    }
 
     public MovieModel() throws Exception {
         movieManager = new MovieManager();
@@ -36,11 +31,24 @@ public class MovieModel {
         moviesToBeViewed.addAll(searchResults);
     }
 
-    public void createNewMovie(int year, String title) {
+    public void createNewMovie(int year, String title) throws Exception {
+        Movie m = movieManager.createNewMovie(year, title);
+        moviesToBeViewed.add(m);
+    }
+
+    public void updateMovie(Movie movie) throws Exception {
         try {
-            movieManager.createNewMovie(year, title);
+            movieManager.updateMovie(movie);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public void deleteMovie(Movie movie) throws Exception {
+        movieManager.deleteMovie(movie);
+    }
+
+    public void setSelectedMovie(Movie movie) {
+        this.selectedMovie = movie;
     }
 }

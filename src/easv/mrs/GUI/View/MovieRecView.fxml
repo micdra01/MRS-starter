@@ -5,49 +5,71 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="easv.mrs.GUI.Controller.MovieViewController">
-   <top>
-      <VBox alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" BorderPane.alignment="CENTER">
-         <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Movie Recommendation System" textAlignment="CENTER" VBox.vgrow="ALWAYS">
-               <font>
-                  <Font name="Book Antiqua Bold" size="30.0" />
-               </font>
-            </Label>
-         </children>
+
+<AnchorPane prefHeight="425.0" prefWidth="508.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="easv.mrs.GUI.Controller.MovieViewController">
+   <children>
+      <BorderPane prefHeight="517.0" prefWidth="508.0">
+         <center>
+            <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" BorderPane.alignment="CENTER">
+               <children>
+                  <TextField fx:id="txtMovieSearch" promptText="search movies">
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <ListView fx:id="lstMovies" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="400.0" prefWidth="469.0" VBox.vgrow="ALWAYS">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </ListView>
+               </children>
+            </VBox>
+         </center>
+         <bottom>
+            <HBox alignment="CENTER" prefHeight="37.0" prefWidth="498.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="btnCreate" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#openCreateMovie" prefWidth="60.0" snapToPixel="false" text="Create" />
+                  <Pane prefHeight="128.0" prefWidth="60.0" />
+                  <Button fx:id="btnDelete" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleDeleteMovie" prefWidth="60.0" snapToPixel="false" text="Delete" />
+                  <Pane prefHeight="128.0" prefWidth="60.0" />
+                  <Button fx:id="btnUpdate" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#openUpdateMovie" prefWidth="60.0" snapToPixel="false" text="Update" />
+                  <Pane prefHeight="128.0" prefWidth="60.0" />
+                  <Button maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefWidth="60.0" snapToPixel="false" text="Rate" />
+               </children>
+            </HBox>
+         </bottom>
+         <top>
+            <HBox prefHeight="44.0" prefWidth="538.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Movie Recommendation System  " textAlignment="CENTER">
+                     <font>
+                        <Font name="Book Antiqua Bold" size="30.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="btnRefresh" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleRefresh" prefHeight="43.0" prefWidth="35.0" snapToPixel="false" text="⟳" wrapText="true">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <padding>
+                        <Insets right="1.0" />
+                     </padding>
+                  </Button>
+               </children>
+               <BorderPane.margin>
+                  <Insets bottom="5.0" />
+               </BorderPane.margin>
+            </HBox>
+         </top>
          <padding>
-            <Insets bottom="10.0" />
+            <Insets left="5.0" right="5.0" top="5.0" />
          </padding>
-         <BorderPane.margin>
-            <Insets left="5.0" right="5.0" />
-         </BorderPane.margin>
-      </VBox>
-   </top>
-   <center>
-      <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" BorderPane.alignment="CENTER">
-         <children>
-            <TextField fx:id="txtMovieSearch" onKeyPressed="#search" promptText="search movies" />
-            <ListView fx:id="lstMovies" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
-         </children>
-      </VBox>
-   </center>
-   <bottom>
-      <HBox alignment="CENTER" prefHeight="48.0" prefWidth="456.0" BorderPane.alignment="CENTER">
-         <children>
-            <Button fx:id="btnCreate" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#openCreateMovie" prefWidth="60.0" snapToPixel="false" text="Create" />
-            <Pane prefHeight="128.0" prefWidth="60.0" />
-            <Button maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefWidth="60.0" snapToPixel="false" text="Delete" />
-            <Pane prefHeight="128.0" prefWidth="60.0" />
-            <Button fx:id="btnUpdate" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#openUpdateMovie" prefWidth="60.0" snapToPixel="false" text="Update" />
-            <Pane prefHeight="128.0" prefWidth="60.0" />
-            <Button maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefWidth="60.0" snapToPixel="false" text="Rate" />
-         </children>
-      </HBox>
-   </bottom>
-</BorderPane>
+      </BorderPane>
+   </children>
+</AnchorPane>

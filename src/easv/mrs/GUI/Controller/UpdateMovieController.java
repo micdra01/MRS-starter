@@ -2,7 +2,6 @@ package easv.mrs.GUI.Controller;
 
 import easv.mrs.BE.Movie;
 import easv.mrs.GUI.Model.MovieModel;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -15,20 +14,30 @@ import java.util.ResourceBundle;
 
 public class UpdateMovieController implements Initializable {
     private MovieModel movieModel;
+    private Movie movie;
     @FXML
-    private TextField txtTitle;
-    @FXML
-    private TextField txtYear;
+    private TextField txtTitle, txtYear;
     @FXML
     private Button btnUpdate;
 
 
-    public void handleUpdate(ActionEvent actionEvent) {
+    public void handleUpdate() throws Exception {
         //Get handle from the stage
         Stage stage = (Stage) btnUpdate.getScene().getWindow();
 
         //DO SOMETHING
 
+        String newTitle = txtTitle.getText();
+        int newYear = Integer.parseInt(txtYear.getText());
+        movie.setTitle(newTitle);
+        movie.setYear(newYear);
+
+        try {
+            movieModel.updateMovie(movie);
+            movieModel.searchMovie("");
+        } catch (Exception e) {
+            displayError(e);
+        }
 
         //Close the window
         stage.close();
@@ -36,8 +45,19 @@ public class UpdateMovieController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        txtTitle.setText(MovieModel.selectedMovie.getTitle());
-        txtYear.setText(String.valueOf(MovieModel.selectedMovie.getYear()));
+        movie = MovieModel.selectedMovie;
+        txtTitle.setText(movie.getTitle());
+        txtYear.setText(String.valueOf(movie.getYear()));
+    }
 
+    private void displayError(Throwable t) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Something went wrong");
+        alert.setHeaderText(t.getMessage());
+        alert.showAndWait();
+    }
+
+    public void setMovieModel(MovieModel movieModel) {
+        this.movieModel = movieModel;
     }
 }
